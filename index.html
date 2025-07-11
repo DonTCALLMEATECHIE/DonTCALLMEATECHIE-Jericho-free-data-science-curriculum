@@ -4,19 +4,12 @@
   <meta charset="UTF-8">
   <title>Jayrathon Technologies – Data Science Curriculum</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Restrict access if not signed in
-    if (localStorage.getItem("signedIn") !== "yes") {
-      window.location.href = "landing.html";
-    }
-  </script>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png.png" alt="Jayrathon Technologies Logo" class="site-logo" />
+    <img src="assets/logo.png" alt="Jayrathon Technologies Logo" class="site-logo" />
     <h1>Jayrathon Technologies</h1>
     <p>Your Launchpad to Data Science</p>
-    <div id="user-greeting"></div>
   </header>
   <nav>
     <ul>
@@ -24,7 +17,7 @@
       <li><a href="#courses">Courses</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#references">References</a></li>
-      <li><a href="#" id="logoutBtn" style="float:right;">Logout</a></li>
+      <li><a href="landing.html" style="float:right;">Logout</a></li>
     </ul>
   </nav>
 
@@ -68,22 +61,7 @@
   </section>
 
   <footer>
-    <p>Built by Jayrathon Technologies for beginner learners. Published using GitHub Pages.</p>
+    <p>powered by Jayrathon Technologies for beginner learners.</p>
   </footer>
-  <script>
-    // Display username greeting
-    document.addEventListener("DOMContentLoaded", function() {
-      const username = localStorage.getItem("username");
-      if (username) {
-        document.getElementById('user-greeting').textContent = "Welcome, " + username + "!";
-      }
-      // Logout functionality
-      document.getElementById('logoutBtn').onclick = function() {
-        localStorage.removeItem("signedIn");
-        localStorage.removeItem("username");
-        window.location.href = "landing.html";
-      }
-    });
-  </script>
 </body>
 </html>
