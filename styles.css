@@ -13,12 +13,14 @@ header, footer {
 }
 
 .site-logo {
-  width: 100px;
+  width: 150px; /* Increase size */
   max-width: 100%;
-  margin-bottom: 1rem;
+  padding: 16px;
+  background: #0078d4; /* Match header/footer color */
+  border-radius: 50%; /* Circular */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* Subtle shadow */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 1rem auto;
 }
 
 nav {
