@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In | Jayrathon Technologies</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="signin-container">
+    <img src="assets/logo.png.png" alt="Jayrathon Technologies Logo" class="site-logo" />
+    <h2>Sign In</h2>
+    <form id="signinForm">
+      <input type="text" id="username" placeholder="Username" required /><br>
+      <input type="password" id="password" placeholder="Password" required /><br>
+      <button type="submit">Sign In</button>
+      <div class="error-msg" id="errorMsg"></div>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </div>
+  <script>
+    // Multiple users: usernames mapped to passwords (demo)
+    const USERS = {
+      "user1": "data123",
+      "user2": "python456",
+      "Juju-jay": "jayrathon789"
+      // Add more users here
+    };
+
+    document.getElementById('signinForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if (USERS[username] && USERS[username] === password) {
+        localStorage.setItem("signedIn", "yes");
+        localStorage.setItem("username", username);
+        window.location.href = "index.html";
+      } else {
+        document.getElementById('errorMsg').textContent = "Incorrect username or password.";
+      }
+    });
+  </script>
+</body>
+</html>
