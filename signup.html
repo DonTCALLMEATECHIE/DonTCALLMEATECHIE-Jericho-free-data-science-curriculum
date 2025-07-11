@@ -9,31 +9,13 @@
   <div class="signin-container">
     <img src="assets/logo.png.png" alt="Jayrathon Technologies Logo" class="site-logo" />
     <h2>Create Account</h2>
-    <form id="signupForm">
-      <input type="text" id="newUsername" placeholder="Username" required /><br>
-      <input type="password" id="newPassword" placeholder="Password" required /><br>
+    <form action="https://formspree.io/f/meokypgk" method="POST">
+      <input type="text" name="username" placeholder="Username" required /><br>
+      <input type="email" name="email" placeholder="Email" required /><br>
+      <input type="password" name="password" placeholder="Password" required /><br>
       <button type="submit">Sign Up</button>
-      <div class="error-msg" id="signupMsg"></div>
     </form>
     <p>Already have an account? <a href="signin.html">Sign In</a></p>
   </div>
-  <script>
-    // Demo signup (accounts are not persisted)
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const username = document.getElementById('newUsername').value.trim();
-      const password = document.getElementById('newPassword').value.trim();
-      if (username.length < 3 || password.length < 5) {
-        document.getElementById('signupMsg').textContent = "Username must be at least 3 characters and password at least 5.";
-        return;
-      }
-      // In a real app, you'd send these to a backend. Here, we just show a message and redirect.
-      document.getElementById('signupMsg').style.color = "green";
-      document.getElementById('signupMsg').textContent = "Account created! Please sign in.";
-      setTimeout(() => {
-        window.location.href = "signin.html";
-      }, 1200);
-    });
-  </script>
 </body>
 </html>
