@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jericho – Data Science Curriculum</title>
+  <title>Jayrathon Technologies – Data Science Curriculum</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <script src="scripts/interactivity.js" defer></script>
+  <script>
+    // Restrict access if not signed in
+    if (localStorage.getItem("signedIn") !== "yes") {
+      window.location.href = "landing.html";
+    }
+  </script>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Jayrathon Technologies Logo" class="site-logo" />
-    <h1>Jayrathon – Beginner-Friendly Data Science Curriculum</h1>
-    <p>Your launchpad to learning Python, visualization, big data, and more.</p>
+    <img src="assets/logo.png.png" alt="Jayrathon Technologies Logo" class="site-logo" />
+    <h1>Jayrathon Technologies</h1>
+    <p>Your Launchpad to Data Science</p>
+    <div id="user-greeting"></div>
   </header>
-  <!-- ... rest of your HTML unchanged ... -->
   <nav>
     <ul>
       <li><a href="#intro">Intro</a></li>
       <li><a href="#courses">Courses</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#references">References</a></li>
+      <li><a href="#" id="logoutBtn" style="float:right;">Logout</a></li>
     </ul>
   </nav>
 
@@ -63,7 +68,22 @@
   </section>
 
   <footer>
-    <p>powered by Jayrathon Technologies for beginner learners.</p>
+    <p>Built by Jayrathon Technologies for beginner learners. Published using GitHub Pages.</p>
   </footer>
+  <script>
+    // Display username greeting
+    document.addEventListener("DOMContentLoaded", function() {
+      const username = localStorage.getItem("username");
+      if (username) {
+        document.getElementById('user-greeting').textContent = "Welcome, " + username + "!";
+      }
+      // Logout functionality
+      document.getElementById('logoutBtn').onclick = function() {
+        localStorage.removeItem("signedIn");
+        localStorage.removeItem("username");
+        window.location.href = "landing.html";
+      }
+    });
+  </script>
 </body>
 </html>
